@@ -9,4 +9,10 @@ return {
   --     require("lsp_signature").setup()
   --   end,
   -- },
+  {
+    "oxfist/night-owl.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
 }
