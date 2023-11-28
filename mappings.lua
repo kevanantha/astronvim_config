@@ -18,6 +18,11 @@ return {
       desc = "Previous buffer",
     },
 
+    ["<C-h>"] = { "<cmd> TmuxNavigateLeft<CR>", desc = "window left" },
+    ["<C-l>"] = { "<cmd> TmuxNavigateRight<CR>", desc = "window right" },
+    ["<C-j>"] = { "<cmd> TmuxNavigateDown<CR>", desc = "window down" },
+    ["<C-k>"] = { "<cmd> TmuxNavigateUp<CR>", desc = "window up" },
+
     -- mappings seen under group name "Buffer"
     ["<leader>bD"] = {
       function()

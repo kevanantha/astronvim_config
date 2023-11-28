@@ -1,5 +1,9 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  dependencies = {
+    "danielo515/nvim-treesitter-reason",
+    "nkrkv/nvim-treesitter-rescript",
+  },
   opts = function(_, opts)
     -- add more things to the ensure_installed table protecting against community packs modifying it
     opts.ensure_installed = require("astronvim.utils").list_insert_unique(opts.ensure_installed, {
@@ -24,9 +28,12 @@ return {
       "nix",
       -- "python",
       "ocaml",
+      "ocaml_interface",
       "prisma",
       "query",
       "regex",
+      "rescript",
+      "reason",
       -- "rust",
       "scss",
       -- "sql",
