@@ -3,6 +3,7 @@
 -- Please use this mappings table to set keyboard mapping since this is the
 -- lower level configuration and more robust one. (which-key will
 -- automatically pick-up stored data by this setting.)
+
 return {
   -- first key is the mode
   n = {
@@ -17,6 +18,8 @@ return {
       function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
       desc = "Previous buffer",
     },
+    ["<A-S-Down>"] = { "<cmd>m .+1<cr>==", desc = "Move down" },
+    ["<A-S-Up>"] = { "<cmd>m .-2<cr>==", desc = "Move up" },
 
     ["<C-h>"] = { "<cmd> TmuxNavigateLeft<CR>", desc = "window left" },
     ["<C-l>"] = { "<cmd> TmuxNavigateRight<CR>", desc = "window right" },
@@ -36,7 +39,16 @@ return {
     -- this is useful for naming menus
     ["<leader>b"] = { name = "Buffers" },
     -- quick save
-    -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+    -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change descriptioe but the same command
+  },
+  i = {
+    ["<A-S-Down>"] = { "<esc><cmd>m .+1<cr>==gi", desc = "Move down" },
+    ["<A-S-Up>"] = { "<esc><cmd>m .-2<cr>==gi", desc = "Move up" },
+  },
+  v = {
+    ["<A-S-Down>"] = { ":m '>+1<cr>gv=gv", desc = "Move down" },
+    ["<A-S-Up>"] = { ":m '<-2<cr>gv=gv", desc = "Move up" },
+    D = { "y'>p", desc = "Duplicate" },
   },
   t = {
     -- setting a mapping to false will disable it
