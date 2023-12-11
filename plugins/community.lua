@@ -9,7 +9,7 @@ return {
   {
     "m4xshen/smartcolumn.nvim",
     opts = {
-      colorcolumn = 120,
+      colorcolumn = "120",
       disabled_filetypes = { "help" },
     },
   },
@@ -77,11 +77,11 @@ return {
   { import = "astrocommunity.motion.mini-surround" },
 
   -- Indent
-  -- { import = "astrocommunity.indent.indent-blankline-nvim", opts = {
-  --   scope = {
-  --     enabled = true,
-  --   },
-  -- } },
+  { import = "astrocommunity.indent.indent-blankline-nvim", opts = {
+    scope = {
+      enabled = false,
+    },
+  } },
 
   -- Project
   { import = "astrocommunity.project.nvim-spectre" },

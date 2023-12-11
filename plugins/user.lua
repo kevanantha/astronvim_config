@@ -22,6 +22,10 @@ return {
     lazy = false,
   },
   {
+    "knubie/vim-kitty-navigator",
+    lazy = false,
+  },
+  {
     "reasonml-editor/vim-reason-plus",
     lazy = false,
   },
