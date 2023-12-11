@@ -4,6 +4,8 @@
 -- lower level configuration and more robust one. (which-key will
 -- automatically pick-up stored data by this setting.)
 
+local TERM = os.getenv "TERM"
+
 return {
   -- first key is the mode
   n = {
@@ -21,10 +23,54 @@ return {
     ["<A-S-Down>"] = { "<cmd>m .+1<cr>==", desc = "Move down" },
     ["<A-S-Up>"] = { "<cmd>m .-2<cr>==", desc = "Move up" },
 
-    ["<C-h>"] = { "<cmd> TmuxNavigateLeft<CR>", desc = "window left" },
-    ["<C-l>"] = { "<cmd> TmuxNavigateRight<CR>", desc = "window right" },
-    ["<C-j>"] = { "<cmd> TmuxNavigateDown<CR>", desc = "window down" },
-    ["<C-k>"] = { "<cmd> TmuxNavigateUp<CR>", desc = "window up" },
+    ["<C-h>"] = {
+      function()
+        if vim.fn.exists ":KittyNavigateLeft" ~= 0 and TERM == "xterm-kitty" then
+          vim.cmd "KittyNavigateLeft"
+        elseif vim.fn.exists ":TmuxNavigateLeft" ~= 0 then
+          vim.cmd "TmuxNavigateLeft"
+        else
+          vim.cmd "wincmd h"
+        end
+      end,
+      desc = "window left",
+    },
+    ["<C-l>"] = {
+      function()
+        if vim.fn.exists ":KittyNavigateRight" ~= 0 and TERM == "xterm-kitty" then
+          vim.cmd "KittyNavigateRight"
+        elseif vim.fn.exists ":TmuxNavigateRight" ~= 0 then
+          vim.cmd "TmuxNavigateRight"
+        else
+          vim.cmd "wincmd l"
+        end
+      end,
+      desc = "window right",
+    },
+    ["<C-j>"] = {
+      function()
+        if vim.fn.exists ":KittyNavigateDown" ~= 0 and TERM == "xterm-kitty" then
+          vim.cmd "KittyNavigateDown"
+        elseif vim.fn.exists ":TmuxNavigateDown" ~= 0 then
+          vim.cmd "TmuxNavigateDown"
+        else
+          vim.cmd "wincmd j"
+        end
+      end,
+      desc = "window down",
+    },
+    ["<C-k>"] = {
+      function()
+        if vim.fn.exists ":KittyNavigateUp" ~= 0 and TERM == "xterm-kitty" then
+          vim.cmd "KittyNavigateUp"
+        elseif vim.fn.exists ":TmuxNavigateUp" ~= 0 then
+          vim.cmd "TmuxNavigateUp"
+        else
+          vim.cmd "wincmd k"
+        end
+      end,
+      desc = "window up",
+    },
 
     -- mappings seen under group name "Buffer"
     ["<leader>bD"] = {
