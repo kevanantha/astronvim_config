@@ -34,6 +34,9 @@ return {
       },
     },
   },
+  {
+    import = "astrocommunity.colorscheme.kanagawa-nvim",
+  },
 
   -- Pack
   { import = "astrocommunity.pack.html-css" },

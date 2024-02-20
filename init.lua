@@ -1,3 +1,5 @@
+vim.o.termguicolors = true
+
 return {
   -- Configure AstroNvim updates
   updater = {
@@ -18,7 +20,8 @@ return {
   },
 
   -- Set colorscheme to use
-  colorscheme = "catppuccin",
+  -- colorscheme = "catppuccin",
+  colorscheme = "kanagawa-wave",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
